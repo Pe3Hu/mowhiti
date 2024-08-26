@@ -1,0 +1,47 @@
+res://entities/world/world.tscn
+res://shaders/gradient effects.gdshader
+res://entities/skill/materials/intuition.tres
+res://shaders/sphere.gdshader
+res://shaders/triple sdiw.gdshader
+res://entities/squad/squad.tscn
+res://entities/member/member.tscn
+res://entities/dungeon/dungeon.tscn
+res://scenes/4/encounter.tscn
+res://scenes/4/dice.tscn
+res://scenes/4/facet.tscn
+res://scenes/4/pool.tscn
+res://scenes/4/facet.gd
+res://entities/skill/materials/tactic.tres
+res://scenes/4/pool.gd
+res://entities/squad/squad.gd
+res://entities/carousel/carousel.tscn
+res://entities/icon/icon.tscn
+res://entities/skill/skill.tscn
+res://entities/skill/skill.gd
+res://entities/skill/materials/suppression.tres
+res://entities/icon/blur.gdshader
+res://shaders/blur.gdshader
+res://shaders/liquid fill.gdshader
+res://shaders/liquid fill v2.gdshader
+res://shaders/moving gradient.gdshader
+res://shaders/radar blip ring.gdshader
+res://shaders/shock wav.gdshader
+res://shaders/shock wave.gdshader
+res://entities/skill/materials/block.tres
+res://entities/skill/materials/prediction.tres
+res://entities/skill/materials/heal.tres
+res://entities/skill/materials/blow.tres
+res://entities/skill/materials/bleeding.tres
+res://entities/action/skill.tscn
+res://entities/action/action.gd
+res://entities/action/action.tscn
+res://entities/squad/squad_resource.gd
+res://entities/carousel/carousel.gd
+res://entities/action/action_resource.gd
+res://entities/member/member_resource.gd
+res://script/Global.gd
+res://entities/member/member.gd
+res://entities/dungeon/dungeon.gd
+res://entities/action/materials/bleeding.tres
+res://shaders/pulse effect.gdshader
+res://entities/carousel/carousel_resource.gd

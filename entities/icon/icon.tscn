@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6x3itquf3d2e"]
+
+[ext_resource type="Texture2D" uid="uid://du7s2i1q6sodm" path="res://entities/action/images/bleeding.png" id="2_vpjfc"]
+
+[node name="Icon" type="TextureRect"]
+offset_right = 256.0
+offset_bottom = 256.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vpjfc")

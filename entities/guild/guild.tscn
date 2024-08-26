@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfw4jyui8cmd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uytx"]
+
+[node name="Guild" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_0uytx")

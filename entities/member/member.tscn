@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfs7oqqxmoyl3"]
+
+[ext_resource type="Script" path="res://entities/member/member.gd" id="1_gxcw5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uytx"]
+
+[node name="Member" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_0uytx")
+script = ExtResource("1_gxcw5")
+
+[node name="Skills" type="Control" parent="."]
+layout_mode = 2
