@@ -1,33 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://yl5yindfr2j5"]
+[gd_scene load_steps=4 format=3 uid="uid://yl5yindfr2j5"]
 
 [ext_resource type="Script" path="res://entities/carousel/carousel.gd" id="1_rbow3"]
+[ext_resource type="PackedScene" uid="uid://bhq8i4go6uq3m" path="res://entities/emblem/emblem.tscn" id="2_5gyxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpe7t"]
 bg_color = Color(0.435294, 0.615686, 0.619608, 0)
 
-[node name="Carousel" type="PanelContainer" node_paths=PackedStringArray("actions")]
+[node name="Carousel" type="PanelContainer" node_paths=PackedStringArray("emblem", "actions")]
 clip_children = 1
 custom_minimum_size = Vector2(5, 5)
 offset_right = 5.0
 offset_bottom = 5.0
 script = ExtResource("1_rbow3")
-actions = NodePath("BG/Actions")
+emblem = NodePath("VBox/Emblem")
+actions = NodePath("VBox/BG/Actions")
 
-[node name="BG" type="Panel" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Emblem" parent="VBox" instance=ExtResource("2_5gyxx")]
+layout_mode = 2
+
+[node name="BG" type="Panel" parent="VBox"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bpe7t")
 
-[node name="Actions" type="VBoxContainer" parent="BG"]
+[node name="Actions" type="VBoxContainer" parent="VBox/BG"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
-
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.05
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

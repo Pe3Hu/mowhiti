@@ -37,17 +37,7 @@ func add_member(member_: MemberResource) -> void:
 	var carousel = CarouselResource.new()
 	carousel.set_member(member_)
 	
-	
 func reset() -> void:
 	fixed = false
 	result = 0
 	rolls = []
-	
-	#while carousels.get_child_count() > 0:
-		#var carousel = carousels.get_child(0)
-		#carousels.remove_child(carousel)
-		#carousel.queue_free()
-	
-#func set_fixed_value(value_: int) -> void:
-	#var carousel = carousels.get_child(0)
-	#carousel.flip_to_value(value_)

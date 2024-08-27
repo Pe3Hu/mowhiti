@@ -8,6 +8,7 @@ var aspect: String:
 var active_actions: Array[ActionResource]
 var inactive_actions: Array[ActionResource]
 var squad: SquadResource
+var emblem_index: int
 
 
 func set_aspect(aspect_: String) -> MemberResource:
@@ -18,6 +19,7 @@ func set_guild(guild_: GuildResource) -> MemberResource:
 	guild = guild_
 	guild.members.append(self)
 	init_actions()
+	emblem_index = Global.arr.free_emblem.pop_back()
 	return self
 	
 func init_actions() -> void:

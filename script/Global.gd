@@ -22,6 +22,7 @@ func _ready() -> void:
 func init_arr() -> void:
 	arr.aspect = ["strength", "dexterity", "intellect", "will"]
 	arr.action = ["bleeding", "suppression", "block", "blow", "prediction", "heal"]
+	arr.free_emblem = []
 	
 func init_num() -> void:
 	num.index = {}
@@ -30,10 +31,8 @@ func init_dict() -> void:
 	init_direction()
 	init_corner()
 	
-	dict.detachment = {}
-	dict.detachment["vanguard"] = "rearguard"
-	dict.detachment["reserve"] = "vanguard"
-	dict.detachment["rearguard"] = "reserve"
+	init_emblem()
+	init_maneuver()
 	
 func init_direction() -> void:
 	dict.direction = {}
@@ -122,26 +121,57 @@ func init_corner() -> void:
 				var vertex = Vector2(1,0).rotated(angle)
 				dict.corner.vector[corners_][order_][_i] = vertex
 	
-func init_blank() -> void:
-	dict.blank = {}
-	dict.blank.rank = {}
-	var exceptions = ["rank"]
+func init_emblem() -> void:
+	dict.emblem = {}
+	dict.emblem.index = {}
+	var exceptions = ["index"]
 	
-	var path = "res://asset/json/maoiri_blank.json"
+	var path = "res://entities/emblem/mowhiti_emblem.json"
 	var array = load_data(path)
 	
-	for blank in array:
-		blank.rank = int(blank.rank)
+	for emblem in array:
+		emblem.index = int(emblem.index)
 		var data = {}
 		
-		for key in blank:
+		for key in emblem:
 			if !exceptions.has(key):
-				data[key] = blank[key]
-			
-		if !dict.blank.rank.has(blank.rank):
-			dict.blank.rank[blank.rank] = []
+				if key.contains("is"):
+					data[key] = int(emblem[key]) > 0
+				else:
+					data[key] = float(emblem[key])
 	
-		dict.blank.rank[blank.rank].append(data)
+		dict.emblem.index[emblem.index] = data
+	
+	arr.free_emblem.append_array(dict.emblem.index.keys())
+	arr.free_emblem.shuffle()
+	
+func init_maneuver() -> void:
+	dict.maneuver = {}
+	dict.maneuver.index = {}
+	dict.maneuver.type = {}
+	var exceptions = ["index"]
+	
+	var path = "res://entities/maneuver/mowhiti_maneuver.json"
+	var array = load_data(path)
+	
+	for maneuver in array:
+		maneuver.index = int(maneuver.index)
+		var data = {}
+		data.values = []
+		
+		for key in maneuver:
+			if !exceptions.has(key):
+				if key.contains("value"):
+					data.values.append(int(maneuver[key]))
+				else:
+					data[key] = maneuver[key]
+	
+		dict.maneuver.index[maneuver.index] = data
+		
+		if !dict.maneuver.type.has(maneuver.type):
+			dict.maneuver.type[maneuver.type] = []
+		
+		dict.maneuver.type[maneuver.type].append(maneuver.index)
 	
 func init_vec():
 	vec.size = {}
@@ -157,6 +187,7 @@ func init_window_size():
 	
 func init_color():
 	#var h = 360.0
+	dict.hue = [0, 120, 210, 270]
 	pass
 	
 func save(path_: String, data_: String):

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhq8i4go6uq3m"]
+
+[ext_resource type="Script" path="res://entities/emblem/emblem.gd" id="2_kngdu"]
+[ext_resource type="FontFile" uid="uid://33eqagvh85us" path="res://assets/fonts/digital/Inter-Black.ttf" id="4_bn0k8"]
+
+[sub_resource type="Shader" id="Shader_gxle5"]
+code = "shader_type canvas_item;
+
+
+uniform vec4 color: source_color = vec4(1.0);
+uniform bool is_inverse = true;
+uniform bool is_circle = true;
+uniform bool is_perfect = true;
+uniform float offset: hint_range(0.0, 0.5, 0.25) = 0.00;
+//uniform float offset_y: hint_range(0.0, 0.5, 0.5) = 0.00;
+uniform float zoom_scale: hint_range(0.5, 2.5, 0.5) = 1.00;
+uniform float radius_scale: hint_range(1.0, 8.0, 1.0) = 1.00;
+
+float circle(in vec2 _st, in float _radius) {
+	vec2 l = _st-vec2(0.5);
+	float result = smoothstep(_radius, _radius, dot(l,l) * 4.0);
+	if (is_inverse) { result = 1. - result; }
+	return result;
+}
+
+float circlePattern(vec2 st, float r) {
+    return  circle(st+vec2(0.,-.5), r)+
+            circle(st+vec2(0.,.5), r)+
+            circle(st+vec2(-.5,0.), r)+
+            circle(st+vec2(.5,0.), r);
+}
+
+void fragment() {
+	vec2 uv = UV * zoom_scale + vec2(offset, offset);
+	if (offset == 0.5) {uv.y -= offset;}
+	//if (is_mirror) { uv.x += 0.5; }
+	uv = fract(uv);
+	float radius = 1.;
+	
+	if (!is_perfect) {
+		radius = 1. / radius_scale;
+		if (is_circle) { radius = radius_scale / (1. + radius_scale); }
+	}
+	
+	COLOR = color * circlePattern(uv, radius);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_voaqw"]
+shader = SubResource("Shader_gxle5")
+shader_parameter/color = Color(0.22, 1, 0.272, 1)
+shader_parameter/is_inverse = false
+shader_parameter/is_circle = true
+shader_parameter/is_perfect = false
+shader_parameter/offset = 0.25
+shader_parameter/zoom_scale = 1.0
+shader_parameter/radius_scale = 1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pupct"]
+
+[node name="Emblem" type="TextureRect" node_paths=PackedStringArray("label")]
+material = SubResource("ShaderMaterial_voaqw")
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("CanvasTexture_pupct")
+script = ExtResource("2_kngdu")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -6.5
+offset_right = 4.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.78, 0.78, 0.78, 1)
+theme_override_fonts/font = ExtResource("4_bn0k8")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

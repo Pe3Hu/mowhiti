@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf6ja1b2kmrhr"]
+[gd_scene load_steps=4 format=3 uid="uid://bf6ja1b2kmrhr"]
 
 [ext_resource type="Script" path="res://entities/squad/squad.gd" id="1_fr00g"]
+[ext_resource type="PackedScene" uid="uid://cvc3aec7mwt3c" path="res://entities/tactic/tactic.tscn" id="2_tpo7x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uytx"]
 
@@ -19,9 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0uytx")
 script = ExtResource("1_fr00g")
-carousels = NodePath("Carousels")
+carousels = NodePath("HBox/Carousels")
 
-[node name="Carousels" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
+
+[node name="Carousels" type="HBoxContainer" parent="HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Tactic" parent="HBox" node_paths=PackedStringArray("squad") instance=ExtResource("2_tpo7x")]
+layout_mode = 2
+squad = NodePath("../..")

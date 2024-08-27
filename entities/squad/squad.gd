@@ -6,6 +6,7 @@ class_name Squad extends PanelContainer
 @export var carousels: HBoxContainer
 
 @onready var carousel_scene = preload("res://entities/carousel/carousel.tscn")
+@onready var emblem_scene = preload("res://entities/emblem/emblem.tscn")
 
 var resource: SquadResource:
 	set = set_resource

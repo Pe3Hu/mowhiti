@@ -1,6 +1,7 @@
 class_name Carousel extends PanelContainer
 
 
+@export var emblem: Emblem
 @export var actions: VBoxContainer
 
 @onready var action_scene = preload("res://entities/action/action.tscn")
@@ -15,23 +16,31 @@ func set_squad(squad_: Squad) -> Carousel:
 	squad = squad_
 	squad.carousels.add_child(self)
 	
-	resource.time = Time.get_unix_time_from_system()
-	resource.anchor = Vector2(0, -resource.action_size.y)
+	#resource.time = Time.get_unix_time_from_system()
+	#resource.anchor = Vector2(0, -resource.action_size.y)
 	init_actions()
 	#shuffle_actions()
 	update_size()
 	reset()
 	#skip_animation()
+	roll()
 	return self
 	
 func set_resource(resource_: CarouselResource) -> Carousel:
 	resource = resource_
+	var emblem_resource = EmblemResource.new()
+	emblem_resource.set_index(resource.member.emblem_index)
+	emblem.set_resource(emblem_resource)
 	return self
 	
 func init_actions() -> void:
-	for action_resource in resource.member.active_actions:
-		var action = action_scene.instantiate()
-		action.set_resource(action_resource).set_carousel(self)
+	for _j in resource.repeats:
+		for action_resource in resource.member.active_actions:
+			var action = action_scene.instantiate()
+			action.set_resource(action_resource).set_carousel(self)
+	
+	#var last_action = action_scene.instantiate()
+	#last_action.set_resource(resource.member.active_actions.back()).set_carousel(self)
 	
 func update_size() -> void:
 	#var vector = resource.action_size#Vector2(actions.get_child(0).size)
@@ -40,23 +49,19 @@ func update_size() -> void:
 	%BG.custom_minimum_size = Vector2(resource.action_size.x, resource.action_size.y * resource.visible_actions)
 	
 func roll() -> void:
-	if !squad.fixed:
+	if !squad.resource.fixed:
 		if resource.skip:
-			skip_animation()
-			squad.carousel_stopped(self)
+			#skip_animation()
+			spin_end()
 		else:
-			%Timer.start()
+			declare_spin()
 	
 	reset()
 	
 func reset() -> void:
+	resource.actions = resource.repeats * resource.member.active_actions.size()
 	#shuffle_actions()
-	resource.pace = 30
-	resource.tick = 0
-	actions.position.y = -resource.action_size.y * 1
-	#var action = actions.get_child(faces-1)
-	#var value = action.get_value()
-	#flip_to_value(value)
+	actions.position.y = -(resource.actions - resource.visible_actions) * resource.action_size.y
 	
 func shuffle_actions() -> void:
 	var temps = []
@@ -70,59 +75,19 @@ func shuffle_actions() -> void:
 	for action in temps:
 		actions.add_child(action)
 	
-func decelerate_spin() -> void:
-	resource.tick += 1
-	var limit = {}
-	limit.min = 0.01
-	limit.max = max(limit.min, 10.0 - resource.tick * 0.15)
-	#start 100 min 1.0 max 10.0 step 0.1 stop 10 = 2.2 sec
+func declare_spin() -> void:
 	Global.rng.randomize()
-	var gap = Global.rng.randf_range(limit.min, limit.max)
-	resource.pace -= gap
-	var optimal = 0.1
-	%Timer.wait_time = max(min(optimal, 1.0 / resource.pace), optimal)
+	var spin_time = resource.spin_time +  Global.rng.randf_range(-resource.spin_gap, resource.spin_gap)
+	Global.rng.randomize()
+	var action_order = Global.rng.randi_range(0, resource.member.active_actions.size())
+	var spin_end_position = Vector2(0, -action_order * resource.action_size.y)
+	resource.tween = create_tween()
+	resource.tween.tween_property(actions, "position", spin_end_position, spin_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	#resource.tween.tween_property(actions, "position", spin_end_position, spin_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	resource.tween.tween_callback(spin_end)
 	
-func _on_timer_timeout():
-	var _time = 1.0 / resource.pace
-	
-	if resource.pace >= 1.5:
-		resource.tween = create_tween()
-		resource.tween.tween_property(actions, "position", Vector2(0, 0), _time).from(resource.anchor)
-		resource.tween.tween_callback(pop_up)
-		decelerate_spin()
-	else:
-		#print("end at", Time.get_unix_time_from_system() - time)
-		squad.carousel_stopped(self)
-	
-func pop_up() -> void:
-	var action = actions.get_child(actions.get_child_count() - 1)
-	actions.move_child(action, 0)
-	
-	if !resource.skip:
-		actions.position = resource.anchor
-		%Timer.start()
-	
-func skip_animation() -> void:
-	var action = actions.get_children().pick_random()
-	flip_to_value(action.get_value())
-	
-func flip_to_value(value_: int) -> void:
-	for action in actions.get_children():
-		if action.get_value() == value_:
-			var index = action.get_index()
-			var step = 1 - index
-			
-			if step < 0:
-				step = actions.get_child_count() - index + 1
-			
-			for _j in step:
-				pop_up()
-			
-			return
-	
-func get_current_action_value() -> int:
-	var action = actions.get_child(1)
-	return action.get_value()
+func spin_end():
+	squad.carousel_stopped(self)
 	
 func crush() -> void:
 	get_parent().remove_child(self)

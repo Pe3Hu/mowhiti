@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy742xqp03oon"]
+
+[ext_resource type="Shader" path="res://shaders/maneuver pattern.gdshader" id="1_ofldm"]
+[ext_resource type="Script" path="res://entities/maneuver/maneuver.gd" id="2_j4g1i"]
+[ext_resource type="Shader" path="res://shaders/maneuver background.gdshader" id="3_0ob3i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjfxq"]
+shader = ExtResource("1_ofldm")
+shader_parameter/time_scale = 0.25
+shader_parameter/tile_count = 3.0
+shader_parameter/index = 0
+shader_parameter/basic_degree = 256
+shader_parameter/bg_color = Color(1, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntelt"]
+shader = ExtResource("3_0ob3i")
+shader_parameter/time_scale = 0.25
+shader_parameter/tile_count = 3.0
+shader_parameter/bg_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l2m8a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkfne"]
+shader = ExtResource("1_ofldm")
+shader_parameter/time_scale = 0.25
+shader_parameter/tile_count = 3.0
+shader_parameter/index = 7
+shader_parameter/basic_degree = 256
+shader_parameter/bg_color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="Maneuver" type="PanelContainer" node_paths=PackedStringArray("pattern", "bg")]
+material = SubResource("ShaderMaterial_fjfxq")
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("2_j4g1i")
+pattern = NodePath("Pattern")
+bg = NodePath("BG")
+
+[node name="BG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ntelt")
+layout_mode = 2
+texture = SubResource("CanvasTexture_l2m8a")
+
+[node name="Pattern" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jkfne")
+layout_mode = 2
+texture = SubResource("CanvasTexture_l2m8a")

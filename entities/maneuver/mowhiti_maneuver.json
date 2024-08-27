@@ -1,0 +1,191 @@
+[
+{
+  "index": 7,
+  "first value": 1,
+  "second value": 2,
+  "third value": 4,
+  "type": "i"
+},
+{
+  "index": 35,
+  "first value": 1,
+  "second value": 2,
+  "third value": 32,
+  "type": "j"
+},
+{
+  "index": 259,
+  "first value": 1,
+  "second value": 2,
+  "third value": 256,
+  "type": "r"
+},
+{
+  "index": 21,
+  "first value": 1,
+  "second value": 16,
+  "third value": 4,
+  "type": "c"
+},
+{
+  "index": 49,
+  "first value": 1,
+  "second value": 16,
+  "third value": 32,
+  "type": "j"
+},
+{
+  "index": 273,
+  "first value": 1,
+  "second value": 16,
+  "third value": 256,
+  "type": "l"
+},
+{
+  "index": 133,
+  "first value": 1,
+  "second value": 128,
+  "third value": 4,
+  "type": "v"
+},
+{
+  "index": 161,
+  "first value": 1,
+  "second value": 128,
+  "third value": 32,
+  "type": "t"
+},
+{
+  "index": 385,
+  "first value": 1,
+  "second value": 128,
+  "third value": 256,
+  "type": "r"
+},
+{
+  "index": 14,
+  "first value": 8,
+  "second value": 2,
+  "third value": 4,
+  "type": "j"
+},
+{
+  "index": 42,
+  "first value": 8,
+  "second value": 2,
+  "third value": 32,
+  "type": "c"
+},
+{
+  "index": 266,
+  "first value": 8,
+  "second value": 2,
+  "third value": 256,
+  "type": "t"
+},
+{
+  "index": 28,
+  "first value": 8,
+  "second value": 16,
+  "third value": 4,
+  "type": "j"
+},
+{
+  "index": 56,
+  "first value": 8,
+  "second value": 16,
+  "third value": 32,
+  "type": "i"
+},
+{
+  "index": 280,
+  "first value": 8,
+  "second value": 16,
+  "third value": 256,
+  "type": "j"
+},
+{
+  "index": 140,
+  "first value": 8,
+  "second value": 128,
+  "third value": 4,
+  "type": "t"
+},
+{
+  "index": 168,
+  "first value": 8,
+  "second value": 128,
+  "third value": 32,
+  "type": "c"
+},
+{
+  "index": 392,
+  "first value": 8,
+  "second value": 128,
+  "third value": 256,
+  "type": "j"
+},
+{
+  "index": 70,
+  "first value": 64,
+  "second value": 2,
+  "third value": 4,
+  "type": "r"
+},
+{
+  "index": 98,
+  "first value": 64,
+  "second value": 2,
+  "third value": 32,
+  "type": "t"
+},
+{
+  "index": 322,
+  "first value": 64,
+  "second value": 2,
+  "third value": 256,
+  "type": "v"
+},
+{
+  "index": 84,
+  "first value": 64,
+  "second value": 16,
+  "third value": 4,
+  "type": "l"
+},
+{
+  "index": 112,
+  "first value": 64,
+  "second value": 16,
+  "third value": 32,
+  "type": "j"
+},
+{
+  "index": 336,
+  "first value": 64,
+  "second value": 16,
+  "third value": 256,
+  "type": "c"
+},
+{
+  "index": 196,
+  "first value": 64,
+  "second value": 128,
+  "third value": 4,
+  "type": "r"
+},
+{
+  "index": 224,
+  "first value": 64,
+  "second value": 128,
+  "third value": 32,
+  "type": "j"
+},
+{
+  "index": 448,
+  "first value": 64,
+  "second value": 128,
+  "third value": 256,
+  "type": "i"
+}
+]
