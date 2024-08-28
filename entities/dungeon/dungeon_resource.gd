@@ -5,6 +5,8 @@ var planet: PlanetResource:
 	set = set_planet
 var squad: SquadResource:
 	set = set_squad
+var index: int
+var rolls = []
 
 
 func set_squad(squad_: SquadResource) -> DungeonResource:

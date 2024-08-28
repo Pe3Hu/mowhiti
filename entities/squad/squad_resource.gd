@@ -7,7 +7,7 @@ var guild: GuildResource:
 	set = set_guild
 var members: Array[MemberResource]
 var carousels: Array[CarouselResource]
-var result = null
+var tactic: TacticResource
 var rolls = []
 var fixed = false
 
@@ -23,6 +23,9 @@ func set_guild(guild_: GuildResource) -> SquadResource:
 	guild = guild_
 	guild.squads.append(self)
 	init_members()
+	
+	tactic = TacticResource.new()
+	tactic.squad = self
 	return self
 	
 func init_members() -> void:
@@ -39,5 +42,4 @@ func add_member(member_: MemberResource) -> void:
 	
 func reset() -> void:
 	fixed = false
-	result = 0
 	rolls = []

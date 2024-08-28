@@ -6,7 +6,7 @@ uniform float tile_count: hint_range(0.0, 10.0, 1.0) = 3;
 uniform int index = 0;
 uniform int basic_degree = 256;
 
-uniform vec4 bg_color: source_color = vec4(1.0, 0.0, 0.0, 0.0);
+uniform vec4 bg_color: source_color = vec4(0.4, 0.4, 0.4, 1.0);
 
 vec3 hsv2rgb(vec3 _c) {
     vec4 _K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
@@ -43,14 +43,14 @@ void fragment() {
 		}
 		next_degree /= 2;
 	}
-	//COLOR.a = 0.
-	if (arr[0] == 0 && uv.y > 2./3. && uv.x > 2./3.) { COLOR.a = 0.; }
-	if (arr[1] == 0 && uv.y > 2./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR.a = 0.; }
-	if (arr[2] == 0 && uv.y > 2./3. && uv.x < 1./3.) { COLOR.a = 0.; }
-	if (arr[3] == 0 && uv.y > 1./3. && uv.y < 2./3. && uv.x > 2./3.) { COLOR.a = 0.; }
-	if (arr[4] == 0 && uv.y > 1./3. && uv.y < 2./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR.a = 0.; }
-	if (arr[5] == 0 && uv.y > 1./3. && uv.y < 2./3. && uv.x < 1./3.) { COLOR.a = 0.; }
-	if (arr[6] == 0 && uv.y < 1./3. && uv.x > 2./3.) { COLOR.a = 0.; }
-	if (arr[7] == 0 && uv.y < 1./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR.a = 0.; }
-	if (arr[8] == 0 && uv.y < 1./3. && uv.x < 1./3.) { COLOR.a = 0.; }
+	
+	if (uv.y > 2./3. && uv.x > 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[0] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y > 2./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[1] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y > 2./3. && uv.x < 1./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[2] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y > 1./3. && uv.y < 2./3. && uv.x > 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[3] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y > 1./3. && uv.y < 2./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[4] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y > 1./3. && uv.y < 2./3. && uv.x < 1./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[5] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y < 1./3. && uv.x > 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[6] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y < 1./3. && uv.x > 1./3. && uv.x < 2./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[7] == 0 ? 1.0 : 0.0)), 1.0) * p; }
+	if (uv.y < 1./3. && uv.x < 1./3.) { COLOR = vec4(mix(active_color, bg_color.rgb, vec3(arr[8] == 0 ? 1.0 : 0.0)), 1.0) * p; }
 }

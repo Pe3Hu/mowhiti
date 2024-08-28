@@ -1,39 +1,45 @@
 res://entities/world/world.tscn
 res://shaders/gradient effects.gdshader
+res://shaders/maneuver pattern.gdshader
+res://shaders/maneuver background.gdshader
 res://shaders/pulse effect.gdshader
-res://entities/squad/squad.tscn
-res://entities/dungeon/dungeon.tscn
-res://entities/carousel/carousel.tscn
-res://entities/icon/icon.tscn
-res://entities/carousel/carousel_resource.gd
-res://entities/member/member_resource.gd
-res://entities/carousel/carousel.gd
-res://entities/squad/squad_resource.gd
-res://entities/action/materials/prediction.tres
 res://shaders/diamond pattern.gdshader
-res://shaders/rotate uv.gdshader
 res://shaders/connected circles.gdshader
 res://shaders/navajo.gdshader
 res://shaders/hexagons grids.gdshader
-res://shaders/circle pattern.gdshader
 res://shaders/emblem pattern.gdshader
-res://entities/action/action.tscn
-res://entities/action/action.gd
-res://entities/emblem/emblem.tscn
-res://entities/emblem/emblem.gd
-res://entities/emblem/emblem_resource.gd
-res://script/Global.gd
-res://entities/squad/squad.gd
-res://entities/emblem/mowhiti_emblem.json
-res://entities/empty/tactic.tscn
-res://entities/empty/maneuver.tscn
-res://entities/tactic/tactic.tscn
-res://shaders/blocks.gdshader
-res://shaders/tilemap cell.gdshader
-res://entities/world/world.gd
+res://entities/squad/squad.tscn
+res://entities/carousel/carousel.tscn
 res://entities/maneuver/maneuver.tscn
-res://shaders/maneuver.gdshader
-res://shaders/maneuver pattern.gdshader
-res://entities/tactic/tactic.gd
+res://entities/tactic/tactic.tscn
 res://entities/maneuver/maneuver.gd
-res://shaders/maneuver background.gdshader
+res://entities/maneuver/maneuver_resource.gd
+res://entities/tactic/tactic_resource.gd
+res://entities/carousel/carousel_resource.gd
+res://entities/carousel/carousel.gd
+res://entities/action/action_resource.gd
+res://entities/member/member_resource.gd
+res://entities/squad/squad.gd
+res://entities/dungeon/dungeon.tscn
+res://entities/dungeon/dungeon.gd
+res://entities/dungeon/dungeon_resource.gd
+res://entities/tactic/tactic.gd
+res://script/Global.gd
+res://entities/action/action.gd
+res://entities/action/action.tscn
+res://entities/squad/squad_resource.gd
+res://entities/health/health.tscn
+res://entities/icon/icon.tscn
+res://shaders/circular bar.gdshader
+res://shaders/linear bar.gdshader
+res://entities/sphere/sphere.tscn
+res://shaders/sphere prediction.gdshader
+res://entities/monster/monster.tscn
+res://shaders/sphere suppression.gdshader
+res://entities/sphere/sphere.gd
+res://entities/health/health.gd
+res://shaders/polygon mask.gdshader
+res://entities/token/token.tscn
+res://entities/token/token.gd
+res://entities/token/token_resource.gd
+res://shaders/five rolling triangles.gdshader

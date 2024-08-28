@@ -16,14 +16,14 @@ func set_squad(squad_: Squad) -> Carousel:
 	squad = squad_
 	squad.carousels.add_child(self)
 	
+	%BG.custom_minimum_size = Vector2(resource.action_size.x, resource.action_size.y * resource.display_actions)
+	
 	#resource.time = Time.get_unix_time_from_system()
 	#resource.anchor = Vector2(0, -resource.action_size.y)
 	init_actions()
 	#shuffle_actions()
-	update_size()
 	reset()
 	#skip_animation()
-	roll()
 	return self
 	
 func set_resource(resource_: CarouselResource) -> Carousel:
@@ -35,18 +35,9 @@ func set_resource(resource_: CarouselResource) -> Carousel:
 	
 func init_actions() -> void:
 	for _j in resource.repeats:
-		for action_resource in resource.member.active_actions:
+		for action_resource in resource.member.actions:
 			var action = action_scene.instantiate()
 			action.set_resource(action_resource).set_carousel(self)
-	
-	#var last_action = action_scene.instantiate()
-	#last_action.set_resource(resource.member.active_actions.back()).set_carousel(self)
-	
-func update_size() -> void:
-	#var vector = resource.action_size#Vector2(actions.get_child(0).size)
-	#vector.y *= resource.window
-	#custom_minimum_size = vector
-	%BG.custom_minimum_size = Vector2(resource.action_size.x, resource.action_size.y * resource.visible_actions)
 	
 func roll() -> void:
 	if !squad.resource.fixed:
@@ -59,9 +50,9 @@ func roll() -> void:
 	reset()
 	
 func reset() -> void:
-	resource.actions = resource.repeats * resource.member.active_actions.size()
+	resource.repeat_actions = resource.repeats * resource.active_actions.size()
 	#shuffle_actions()
-	actions.position.y = -(resource.actions - resource.visible_actions) * resource.action_size.y
+	actions.position.y = -(resource.repeat_actions - resource.display_actions) * resource.action_size.y
 	
 func shuffle_actions() -> void:
 	var temps = []
@@ -78,12 +69,10 @@ func shuffle_actions() -> void:
 func declare_spin() -> void:
 	Global.rng.randomize()
 	var spin_time = resource.spin_time +  Global.rng.randf_range(-resource.spin_gap, resource.spin_gap)
-	Global.rng.randomize()
-	var action_order = Global.rng.randi_range(0, resource.member.active_actions.size())
-	var spin_end_position = Vector2(0, -action_order * resource.action_size.y)
+	resource.roll_action()
+	var spin_end_position = Vector2(0, -resource.spin_order * resource.action_size.y)
 	resource.tween = create_tween()
 	resource.tween.tween_property(actions, "position", spin_end_position, spin_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	#resource.tween.tween_property(actions, "position", spin_end_position, spin_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	resource.tween.tween_callback(spin_end)
 	
 func spin_end():

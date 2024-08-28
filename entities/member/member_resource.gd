@@ -5,8 +5,7 @@ var guild: GuildResource:
 	set = set_guild
 var aspect: String:
 	set = set_aspect
-var active_actions: Array[ActionResource]
-var inactive_actions: Array[ActionResource]
+var actions: Array[ActionResource]
 var squad: SquadResource
 var emblem_index: int
 

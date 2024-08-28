@@ -1,31 +1,31 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724752655
-::res://assets/::1724649734
+::res://::1724835759
+::res://assets/::1724755328
 default_env.tres::Environment::-1::1690116911::0::1::::<><>::
-icon.png::CompressedTexture2D::2432420761471245026::1690116911::1724364032::1::::<><>::
-icon.svg::CompressedTexture2D::9162371498834860976::1690116911::1724364032::1::::<><>::
+icon.png::CompressedTexture2D::2432420761471245026::1690116911::1724755328::1::::<><>::
+icon.svg::CompressedTexture2D::9162371498834860976::1690116911::1724755328::1::::<><>::
 README.md::TextFile::-1::1690795285::0::1::::<><>::
 ::res://assets/fonts/::1724649734
-::res://assets/fonts/digital/::1724649734
-Inter-Black.ttf::FontFile::2023361649885781834::1694723238::1724364038::1::::<><>::
-::res://assets/fonts/letter/::1724649734
-Roboto-Bold.ttf::FontFile::7183128479095054959::1663817230::1724364038::1::::<><>::
-Roboto-Light.ttf::FontFile::2934334192827154238::1663817230::1724364038::1::::<><>::
-Walter-Bold.ttf::FontFile::6104160909452173604::1570526552::1724364038::1::::<><>::
+::res://assets/fonts/digital/::1724755328
+Inter-Black.ttf::FontFile::2023361649885781834::1694723238::1724755328::1::::<><>::
+::res://assets/fonts/letter/::1724755328
+Roboto-Bold.ttf::FontFile::7183128479095054959::1663817230::1724755328::1::::<><>::
+Roboto-Light.ttf::FontFile::2934334192827154238::1663817230::1724755328::1::::<><>::
+Walter-Bold.ttf::FontFile::6104160909452173604::1570526552::1724755328::1::::<><>::
 ::res://assets/jsons/::1703954988
 ::res://assets/pngs/::1724460464
-::res://entities/::1724746459
-::res://entities/action/::1724746144
-action.gd::GDScript::-1::1724738914::0::1::::Action<>TextureRect<>::
-action.tscn::PackedScene::416248276994182681::1724746144::0::1::::<><>::uid://be5iva8vkxm65::::res://entities/action/materials/suppression.tres<>uid://duss1nxf0xpsn::::res://entities/action/images/suppression.png<>res://entities/action/action.gd<>uid://33eqagvh85us::::res://assets/fonts/digital/Inter-Black.ttf
-action_resource.gd::GDScript::-1::1724657238::0::1::::ActionResource<>Resource<>::
-::res://entities/action/images/::1724655237
-bleeding.png::CompressedTexture2D::8630240595395925162::1724552525::1724655237::1::::<><>::
-block.png::CompressedTexture2D::842417776723223928::1724552525::1724655237::1::::<><>::
-blow.png::CompressedTexture2D::1310965750378702886::1724552525::1724655237::1::::<><>::
-heal.png::CompressedTexture2D::8876276496208584190::1724552525::1724655237::1::::<><>::
-prediction.png::CompressedTexture2D::9142445396079088437::1724552525::1724655237::1::::<><>::
-suppression.png::CompressedTexture2D::8601337778519911381::1724552525::1724655237::1::::<><>::
+::res://entities/::1724835681
+::res://entities/action/::1724836331
+action.gd::GDScript::-1::1724836152::0::1::::Action<>TextureRect<>::
+action.tscn::PackedScene::416248276994182681::1724836331::0::1::::<><>::uid://be5iva8vkxm65::::res://entities/action/materials/suppression.tres<>uid://duss1nxf0xpsn::::res://entities/action/images/suppression.png<>res://entities/action/action.gd<>uid://6x3itquf3d2e::::res://entities/token/token.tscn
+action_resource.gd::GDScript::-1::1724822760::0::1::::ActionResource<>Resource<>::
+::res://entities/action/images/::1724755328
+bleeding.png::CompressedTexture2D::8630240595395925162::1724552525::1724755328::1::::<><>::
+block.png::CompressedTexture2D::842417776723223928::1724552525::1724755328::1::::<><>::
+blow.png::CompressedTexture2D::1310965750378702886::1724552525::1724755328::1::::<><>::
+heal.png::CompressedTexture2D::8876276496208584190::1724552525::1724755328::1::::<><>::
+prediction.png::CompressedTexture2D::9142445396079088437::1724552525::1724755328::1::::<><>::
+suppression.png::CompressedTexture2D::8601337778519911381::1724552525::1724755328::1::::<><>::
 ::res://entities/action/materials/::1724735609
 bleeding.tres::ShaderMaterial::6847651492380060999::1724659820::0::1::::<><>::res://shaders/gradient effects.gdshader
 block.tres::ShaderMaterial::6393998324445558772::1724655038::0::1::::<><>::res://shaders/gradient effects.gdshader
@@ -33,57 +33,70 @@ blow.tres::ShaderMaterial::4228934595343069697::1724655038::0::1::::<><>::res://
 heal.tres::ShaderMaterial::3098634080527502503::1724654684::0::1::::<><>::res://shaders/gradient effects.gdshader
 prediction.tres::ShaderMaterial::1692701460027276228::1724735609::0::1::::<><>::res://shaders/gradient effects.gdshader
 suppression.tres::ShaderMaterial::2729630680428130340::1724655038::0::1::::<><>::res://shaders/gradient effects.gdshader
-::res://entities/carousel/::1724753163
-carousel.gd::GDScript::-1::1724746053::0::1::::Carousel<>PanelContainer<>::
-carousel.tscn::PackedScene::1709105211857092404::1724753163::0::1::::<><>::res://entities/carousel/carousel.gd<>uid://bhq8i4go6uq3m::::res://entities/emblem/emblem.tscn
-carousel_resource.gd::GDScript::-1::1724731911::0::1::::CarouselResource<>Resource<>::
-::res://entities/dungeon/::1724746143
-dungeon.gd::GDScript::-1::1724660727::0::1::::Dungeon<>PanelContainer<>::
-dungeon.tscn::PackedScene::6539746672343532240::1724746143::0::1::::<><>::res://entities/dungeon/dungeon.gd<>uid://bf6ja1b2kmrhr::::res://entities/squad/squad.tscn
-dungeon_resource.gd::GDScript::-1::1724366000::0::1::::DungeonResource<>Resource<>::
-::res://entities/emblem/::1724746144
+::res://entities/carousel/::1724836330
+carousel.gd::GDScript::-1::1724825637::0::1::::Carousel<>PanelContainer<>::
+carousel.tscn::PackedScene::1709105211857092404::1724836330::0::1::::<><>::res://entities/carousel/carousel.gd<>uid://bhq8i4go6uq3m::::res://entities/emblem/emblem.tscn
+carousel_resource.gd::GDScript::-1::1724823065::0::1::::CarouselResource<>Resource<>::
+::res://entities/dungeon/::1724823402
+dungeon.gd::GDScript::-1::1724823402::0::1::::Dungeon<>PanelContainer<>::
+dungeon.tscn::PackedScene::6539746672343532240::1724823402::0::1::::<><>::res://entities/dungeon/dungeon.gd<>uid://bf6ja1b2kmrhr::::res://entities/squad/squad.tscn
+dungeon_resource.gd::GDScript::-1::1724823402::0::1::::DungeonResource<>Resource<>::
+::res://entities/emblem/::1724824386
 emblem.gd::GDScript::-1::1724746143::0::1::::Emblem<>TextureRect<>::
+emblem.json::JSON::-1::1724743632::0::1::::<><>::
 emblem.tscn::PackedScene::2912792113461125204::1724746144::0::1::::<><>::res://entities/emblem/emblem.gd<>uid://33eqagvh85us::::res://assets/fonts/digital/Inter-Black.ttf
 emblem_resource.gd::GDScript::-1::1724745405::0::1::::EmblemResource<>Resource<>::
-mowhiti_emblem.json::JSON::-1::1724743632::0::1::::<><>::
-::res://entities/empty/::1724746468
+::res://entities/empty/::1724835759
 empty.tscn::PackedScene::5291738769131499439::1724362385::0::1::::<><>::
 empty_resource.gd::GDScript::-1::1724016672::0::1::::<>Resource<>::
 ::res://entities/guild/::1724649734
 guild.tscn::PackedScene::152087648616624043::1724459440::0::1::::<><>::
 guild_resource.gd::GDScript::-1::1724462790::0::1::::GuildResource<>Resource<>::
-::res://entities/icon/::1724746144
-icon.tscn::PackedScene::2225050226848097366::1724746144::0::1::::<><>::res://shaders/emblem pattern.gdshader
-::res://entities/maneuver/::1724753163
-maneuver.tscn::PackedScene::6525243945524532721::1724753163::0::1::::<><>::res://shaders/maneuver pattern.gdshader<>res://entities/maneuver/maneuver.gd
-mowhiti_maneuver.json::JSON::-1::1724752292::0::1::::<><>::
-maneuver.gd::GDScript::-1::1724752759::0::1::::Maneuver<>TextureRect<>::
-::res://entities/member/::1724746029
+::res://entities/health/::1724836331
+health.gd::GDScript::-1::1724833664::0::1::::Health<>TextureRect<>::
+health.tscn::PackedScene::2391183692187572682::1724836331::0::1::::<><>::res://shaders/linear bar.gdshader<>uid://33eqagvh85us::::res://assets/fonts/digital/Inter-Black.ttf<>res://entities/health/health.gd
+::res://entities/maneuver/::1724836330
+maneuver.gd::GDScript::-1::1724830095::0::1::::Maneuver<>PanelContainer<>::
+maneuver.json::JSON::-1::1724825097::0::1::::<><>::
+maneuver.tscn::PackedScene::6525243945524532721::1724836330::0::1::::<><>::res://shaders/maneuver pattern.gdshader<>res://entities/maneuver/maneuver.gd
+maneuver_resource.gd::GDScript::-1::1724826828::0::1::::ManeuverResource<>Resource<>::
+::res://entities/member/::1724822761
 member.gd::GDScript::-1::1724658670::0::1::::Member<>PanelContainer<>::
 member.tscn::PackedScene::2776492512491636482::1724658670::0::1::::<><>::res://entities/member/member.gd
-member_resource.gd::GDScript::-1::1724746029::0::1::::MemberResource<>Resource<>::
+member_resource.gd::GDScript::-1::1724822761::0::1::::MemberResource<>Resource<>::
+::res://entities/monster/::1724836331
+monster.tscn::PackedScene::6930591930917719618::1724836331::0::1::::<><>::uid://backpfvybrnyo::::res://entities/health/health.tscn<>uid://bgfmutf6qohrj::::res://entities/sphere/sphere.tscn<>res://shaders/linear bar.gdshader<>res://shaders/sphere suppression.gdshader<>res://shaders/sphere prediction.gdshader<>uid://bhq8i4go6uq3m::::res://entities/emblem/emblem.tscn
 ::res://entities/planet/::1724649734
 planet.gd::GDScript::-1::1724366073::0::1::::Planet<>PanelContainer<>::
 planet.tscn::PackedScene::3291355514185259789::1724462005::0::1::::<><>::res://entities/planet/planet.gd
 planet_resource.gd::GDScript::-1::1724463563::0::1::::PlanetResource<>Resource<>::
-::res://entities/squad/::1724753163
-squad.gd::GDScript::-1::1724746143::0::1::::Squad<>PanelContainer<>::
-squad.tscn::PackedScene::2801908433586533731::1724753163::0::1::::<><>::res://entities/squad/squad.gd<>uid://cvc3aec7mwt3c::::res://entities/tactic/tactic.tscn
-squad_resource.gd::GDScript::-1::1724745696::0::1::::SquadResource<>Resource<>::
-::res://entities/tactic/::1724753164
-tactic.gd::GDScript::-1::1724753080::0::1::::Tactic<>PanelContainer<>::
-tactic.tscn::PackedScene::6252636129744329334::1724753164::0::1::::<><>::res://shaders/maneuver pattern.gdshader<>res://entities/tactic/tactic.gd
-::res://entities/world/::1724753163
+::res://entities/sphere/::1724836331
+sphere.gd::GDScript::-1::1724833603::0::1::::Sphere<>TextureRect<>::
+sphere.tscn::PackedScene::2818640961181002999::1724836331::0::1::::<><>::res://shaders/sphere prediction.gdshader<>res://entities/sphere/sphere.gd<>uid://33eqagvh85us::::res://assets/fonts/digital/Inter-Black.ttf
+::res://entities/squad/::1724836330
+squad.gd::GDScript::-1::1724826651::0::1::::Squad<>PanelContainer<>::
+squad.tscn::PackedScene::2801908433586533731::1724836330::0::1::::<><>::res://entities/squad/squad.gd<>uid://cvc3aec7mwt3c::::res://entities/tactic/tactic.tscn
+squad_resource.gd::GDScript::-1::1724825521::0::1::::SquadResource<>Resource<>::
+::res://entities/tactic/::1724836330
+tactic.gd::GDScript::-1::1724826550::0::1::::Tactic<>PanelContainer<>::
+tactic.tscn::PackedScene::6252636129744329334::1724836330::0::1::::<><>::res://entities/tactic/tactic.gd
+tactic_resource.gd::GDScript::-1::1724826779::0::1::::TacticResource<>Resource<>::
+::res://entities/token/::1724836728
+token.gd::GDScript::-1::1724835859::0::1::::Token<>TextureRect<>::
+token.tscn::PackedScene::2225050226848097366::1724836728::0::1::::<><>::res://shaders/polygon mask.gdshader<>res://entities/token/token.gd<>uid://33eqagvh85us::::res://assets/fonts/digital/Inter-Black.ttf
+token_resource.gd::GDScript::-1::1724835832::0::1::::TokenResource<>Resource<>::
+::res://entities/world/::1724836329
 world.gd::GDScript::-1::1724752413::0::1::::World<>Node<>::
-world.tscn::PackedScene::8246655032211948728::1724753163::0::1::::<><>::res://entities/world/world.gd<>uid://bm5me58j23h86::::res://entities/planet/planet.tscn
-::res://script/::1724752505
-Global.gd::GDScript::-1::1724752505::0::1::::<>Node<>::
-::res://shaders/::1724753164
-connected circles.gdshader::Shader::-1::1724753164::0::1::::<><>::
-diamond pattern.gdshader::Shader::-1::1724753164::0::1::::<><>::
-emblem pattern.gdshader::Shader::-1::1724753164::0::1::::<><>::
-gradient effects.gdshader::Shader::-1::1724753164::0::1::::<><>::
-hexagons grids.gdshader::Shader::-1::1724753164::0::1::::<><>::
-maneuver pattern.gdshader::Shader::-1::1724753164::0::1::::<><>::
-navajo.gdshader::Shader::-1::1724753164::0::1::::<><>::
-pulse effect.gdshader::Shader::-1::1724753164::0::1::::<><>::
+world.tscn::PackedScene::8246655032211948728::1724836329::0::1::::<><>::res://entities/world/world.gd<>uid://bm5me58j23h86::::res://entities/planet/planet.tscn
+::res://script/::1724824606
+Global.gd::GDScript::-1::1724824606::0::1::::<>Node<>::
+::res://shaders/::1724836741
+circular bar.gdshader::Shader::-1::1724836728::0::1::::<><>::
+emblem pattern.gdshader::Shader::-1::1724836728::0::1::::<><>::
+gradient effects.gdshader::Shader::-1::1724836728::0::1::::<><>::
+linear bar.gdshader::Shader::-1::1724836728::0::1::::<><>::
+maneuver background.gdshader::Shader::-1::1724836728::0::1::::<><>::
+maneuver pattern.gdshader::Shader::-1::1724836728::0::1::::<><>::
+polygon mask.gdshader::Shader::-1::1724836728::0::1::::<><>::
+sphere prediction.gdshader::Shader::-1::1724836728::0::1::::<><>::
+sphere suppression.gdshader::Shader::-1::1724836728::0::1::::<><>::

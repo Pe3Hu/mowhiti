@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uytx"]
 
-[node name="Squad" type="PanelContainer" node_paths=PackedStringArray("carousels")]
+[node name="Squad" type="PanelContainer" node_paths=PackedStringArray("carousels", "tactic")]
 custom_minimum_size = Vector2(80, 80)
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,6 +21,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0uytx")
 script = ExtResource("1_fr00g")
 carousels = NodePath("HBox/Carousels")
+tactic = NodePath("HBox/Tactic")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2

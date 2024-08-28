@@ -126,7 +126,7 @@ func init_emblem() -> void:
 	dict.emblem.index = {}
 	var exceptions = ["index"]
 	
-	var path = "res://entities/emblem/mowhiti_emblem.json"
+	var path = "res://entities/emblem/emblem.json"
 	var array = load_data(path)
 	
 	for emblem in array:
@@ -151,18 +151,18 @@ func init_maneuver() -> void:
 	dict.maneuver.type = {}
 	var exceptions = ["index"]
 	
-	var path = "res://entities/maneuver/mowhiti_maneuver.json"
+	var path = "res://entities/maneuver/maneuver.json"
 	var array = load_data(path)
 	
 	for maneuver in array:
 		maneuver.index = int(maneuver.index)
 		var data = {}
-		data.values = []
+		data.orders = []
 		
 		for key in maneuver:
 			if !exceptions.has(key):
 				if key.contains("value"):
-					data.values.append(int(maneuver[key]))
+					data.orders.append(int(maneuver[key]))
 				else:
 					data[key] = maneuver[key]
 	

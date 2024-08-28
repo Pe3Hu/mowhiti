@@ -21,6 +21,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Emblem" parent="VBox" instance=ExtResource("2_5gyxx")]
+visible = false
 layout_mode = 2
 
 [node name="BG" type="Panel" parent="VBox"]

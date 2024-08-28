@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://c50h3pa8ia7mk"]
+
+[ext_resource type="PackedScene" uid="uid://backpfvybrnyo" path="res://entities/health/health.tscn" id="1_nlspv"]
+[ext_resource type="PackedScene" uid="uid://bgfmutf6qohrj" path="res://entities/sphere/sphere.tscn" id="2_lqgy4"]
+[ext_resource type="Shader" path="res://shaders/linear bar.gdshader" id="2_u12wt"]
+[ext_resource type="Shader" path="res://shaders/sphere suppression.gdshader" id="3_1et3l"]
+[ext_resource type="Shader" path="res://shaders/sphere prediction.gdshader" id="4_spqyt"]
+[ext_resource type="PackedScene" uid="uid://bhq8i4go6uq3m" path="res://entities/emblem/emblem.tscn" id="5_0pcbv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uytx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01t2v"]
+shader = ExtResource("2_u12wt")
+shader_parameter/color_0 = Color(1, 0.2, 0.2, 1)
+shader_parameter/color_1 = Color(1, 0.8, 0.2, 1)
+shader_parameter/color_2 = Color(0.2, 1, 0.2, 1)
+shader_parameter/health_value = 1.0
+shader_parameter/limit_0 = 0.333
+shader_parameter/limit_1 = 0.666
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npm7m"]
+shader = ExtResource("3_1et3l")
+shader_parameter/backFillColour = Color(0.8, 0.6, 1, 1)
+shader_parameter/frontFillInnerColour = Color(0.35, 0, 1, 1)
+shader_parameter/frontFillOuterColour = Color(0.5, 0.25, 1, 1)
+shader_parameter/ringColour = Color(0.17, 0, 0.34, 1)
+shader_parameter/fresnelColour = Color(0.8, 0.75, 1, 1)
+shader_parameter/innerRingGlowColour = Color(0.2, 0, 0.6, 1)
+shader_parameter/fillcolour = Color(1, 1, 1, 1)
+shader_parameter/ringWidth = 0.15
+shader_parameter/innerCircleRadiusOffset = 0.0
+shader_parameter/fill_value = -1.0
+shader_parameter/seed = 0.886001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1fou"]
+shader = ExtResource("4_spqyt")
+shader_parameter/backFillColour = Color(0.95, 0.66, 0.4, 1)
+shader_parameter/frontFillInnerColour = Color(1, 0.5, 0, 1)
+shader_parameter/frontFillOuterColour = Color(1, 0.66, 0.25, 1)
+shader_parameter/ringColour = Color(0.25, 0.125, 0, 1)
+shader_parameter/fresnelColour = Color(1, 0.9, 0.6, 1)
+shader_parameter/innerRingGlowColour = Color(0.6, 0.3, 0, 1)
+shader_parameter/fillcolour = Color(1, 1, 1, 1)
+shader_parameter/ringWidth = 0.15
+shader_parameter/innerCircleRadiusOffset = 0.0
+shader_parameter/fill_value = -1.0
+shader_parameter/seed = 0.0
+
+[node name="Monster" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_0uytx")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Health" parent="VBox" instance=ExtResource("1_nlspv")]
+material = SubResource("ShaderMaterial_01t2v")
+layout_mode = 2
+
+[node name="Spheres" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Sphere" parent="VBox/Spheres" instance=ExtResource("2_lqgy4")]
+material = SubResource("ShaderMaterial_npm7m")
+layout_mode = 2
+
+[node name="Emblem" parent="VBox/Spheres" instance=ExtResource("5_0pcbv")]
+layout_mode = 2
+
+[node name="Sphere2" parent="VBox/Spheres" instance=ExtResource("2_lqgy4")]
+material = SubResource("ShaderMaterial_q1fou")
+layout_mode = 2

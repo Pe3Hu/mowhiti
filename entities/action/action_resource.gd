@@ -10,6 +10,7 @@ class_name ActionResource extends Resource
 var member: MemberResource:
 	set = set_member
 
+
 func set_value(value_: int) -> ActionResource:
 	if value != value_:
 		value = value_
@@ -24,7 +25,7 @@ func set_type(type_: String) -> ActionResource:
 	
 func set_member(member_: MemberResource) -> ActionResource:
 	member = member_
-	member.active_actions.append(self)
+	member.actions.append(self)
 	return self
 	
 func switch_status() -> void:

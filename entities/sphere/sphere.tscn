@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgfmutf6qohrj"]
+
+[ext_resource type="Shader" path="res://shaders/sphere prediction.gdshader" id="1_geult"]
+[ext_resource type="Script" path="res://entities/sphere/sphere.gd" id="2_byhtj"]
+[ext_resource type="FontFile" uid="uid://33eqagvh85us" path="res://assets/fonts/digital/Inter-Black.ttf" id="2_gt48y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a16ew"]
+shader = ExtResource("1_geult")
+shader_parameter/backFillColour = Color(0.95, 0.66, 0.4, 1)
+shader_parameter/frontFillInnerColour = Color(1, 0.5, 0, 1)
+shader_parameter/frontFillOuterColour = Color(1, 0.66, 0.25, 1)
+shader_parameter/ringColour = Color(0.25, 0.125, 0, 1)
+shader_parameter/fresnelColour = Color(1, 0.9, 0.6, 1)
+shader_parameter/innerRingGlowColour = Color(0.6, 0.3, 0, 1)
+shader_parameter/fillcolour = Color(1, 1, 1, 1)
+shader_parameter/ringWidth = 0.15
+shader_parameter/innerCircleRadiusOffset = 0.0
+shader_parameter/fill_value = -0.287
+shader_parameter/seed = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tiulk"]
+
+[node name="Sphere" type="TextureRect" node_paths=PackedStringArray("label")]
+material = SubResource("ShaderMaterial_a16ew")
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("CanvasTexture_tiulk")
+script = ExtResource("2_byhtj")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -6.5
+offset_right = 4.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gt48y")
+theme_override_font_sizes/font_size = 12
+text = "0/10"
+horizontal_alignment = 1
+vertical_alignment = 1

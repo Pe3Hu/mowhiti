@@ -2,19 +2,27 @@ class_name Tactic extends PanelContainer
 
 
 @export var squad: Squad
-@export var maneuvers: GridContainer#VBoxContainer
+@export var maneuvers: VBoxContainer
 
 @onready var maneuver_scene = preload("res://entities/maneuver/maneuver.tscn")
 
+var resource: TacticResource
+
 
 func _ready() -> void:
+	resource = squad.resource.tactic
 	init_maneuvers()
 	
 func init_maneuvers() -> void:
-	for type in Global.dict.maneuver.type:
-		for index in Global.dict.maneuver.type[type]:
-			var maneuver = maneuver_scene.instantiate()
-			maneuver.pattern.material = ShaderMaterial.new()
-			maneuver.pattern.material.shader = load("res://shaders/maneuver pattern.gdshader")
-			maneuver.pattern.material.set("shader_parameter/index", index) 
-			maneuvers.add_child(maneuver)
+	for maneuver_resource in resource.maneuvers:
+		var maneuver = maneuver_scene.instantiate()
+		maneuver.set_resource(maneuver_resource).set_tactic(self)
+	
+func update_maneuvers() -> void:
+	resource.update_maneuvers()
+	
+	for maneuver in maneuvers.get_children():
+		if resource.hand_indexs.has(maneuver.resource.index):
+			maneuver.update_actions()
+		else:
+			maneuver.visible = false
